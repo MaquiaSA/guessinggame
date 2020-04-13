@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Alphabet Guessing Game</h1>
+    <h3>MongoDB Exercise</h3>
+    <br />
+    <% if (step == 0) { %>
+    <form action="/start" method="POST">
+      <button type="submit">Start</button>
+    </form>
+    <% } else if (step <= 4 && step != 0) { %>
+    <h3>
+      Please choose A, B, C, or D.
+    </h3>
+    <h4 class="question">Question: <%= question %></h4>
+    <br />
+    <form action="/set_question" method="POST">
+      <h4>Choose:</h4>
+      <input value="A" name="question" type="submit" />
+      <input value="B" name="question" type="submit" />
+      <input value="C" name="question" type="submit" />
+      <input value="D" name="question" type="submit" />
+    </form>
+    <% } else if (step > 4 && step <= 8) { %>
+    <h3>
+      Please choose A, B, C, or D.
+    </h3>
+    <h4>Answer: <%= answer %></h4>
+    <h4>Character(s) remaining guessing: <%= guessing %></h4>
+    <h4>Fail: <%= fail %></h4>
+    <p></p>
+    <form action="/guessing" method="POST">
+      <h4>Choose:</h4>
+      <input value="A" name="guessing" type="submit" />
+      <input value="B" name="guessing" type="submit" />
+      <input value="C" name="guessing" type="submit" />
+      <input value="D" name="guessing" type="submit" />
+    </form>
+      <% } else if (step > 8) { %>
+    <div>
+      <h3>WIN!</h3>
+      <h4>Answer: <%= answer %></h4>
+      <h4>Start: <%= start %></h4>
+      <h4>End: <%= end %></h4>
+      <h4>Duration (secs): <%= duration %></h4>
+      <h4>Duration (text): <%= duration_text %></h4>
+      <h4>Fail: <%= fail %></h4>
+      <h4>Score: <%= score %></h4>
+      <h4>Top 5:</h4>
+      <form action="/start" method="POST">
+        <button type="submit">Restart</button>
+      </form>
+      <% } %>
+    </div>
+  </body>
+  <script src="../index.js"></script>
+</html>

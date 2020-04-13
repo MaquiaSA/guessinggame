@@ -15,5 +15,5 @@ docker start [container_name]
 ```
 npm run dev
 ```
-> The server will runing on `http://0.0.0.0:80` so make sure that port 80 is available.
+> The server will be running on `http://0.0.0.0:80` so make sure that port 80 is available.
 
